@@ -12,10 +12,17 @@ Funcionalidades:
 Requisitos:
 
 1 - Conexão com banco de dados                                                   [OK]
+
 2 - Tratamento de Erros
+
 3 - Autenticação via JWT                                                         [OK]
+
 4 - Descrição dos serviços via Swagger                                           [OK]
+
 5 - Separação das funcionalidades via Microserviços                              [OK]
+
 6 - Comunicação entre MicroServicos via Feign (ou outra alternativa)
+
 7 - Criar rotina para deploy (Docker)                                            [OK]
+
 8 - Criar uma rotina no Rabbit MQ
