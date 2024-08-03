@@ -1,0 +1,6 @@
+@LocacaoVeiculos.RentalService_HostAddress = http://localhost:5044
+
+GET {{LocacaoVeiculos.RentalService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

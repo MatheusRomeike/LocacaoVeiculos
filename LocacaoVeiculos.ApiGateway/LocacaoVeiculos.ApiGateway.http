@@ -1,0 +1,6 @@
+@LocacaoVeiculos.ApiGateway_HostAddress = http://localhost:5150
+
+GET {{LocacaoVeiculos.ApiGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

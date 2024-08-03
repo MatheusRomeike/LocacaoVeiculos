@@ -1,0 +1,6 @@
+@LocacaoVeiculos.AuthService_HostAddress = http://localhost:5236
+
+GET {{LocacaoVeiculos.AuthService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
