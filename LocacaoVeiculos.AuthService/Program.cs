@@ -36,9 +36,10 @@ builder.Services.AddMassTransit(x =>
     {
         cfg.Host("localhost", "/", h =>
         {
-            h.Username("guest");
-            h.Password("guest");
+            h.Username("user");
+            h.Password("password");
         });
+        cfg.ConfigureEndpoints(context);
     });
 });
 
