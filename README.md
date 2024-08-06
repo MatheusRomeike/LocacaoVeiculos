@@ -1,3 +1,7 @@
+Subir projeto
+
+docker-compose up
+
 Descrição do trabalho
 
 Desenvolver uma API Rest para um problema proposto:
