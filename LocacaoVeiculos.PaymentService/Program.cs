@@ -32,10 +32,10 @@ builder.Services.AddMassTransit(x =>
 
     x.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("rabbitmq", "/", h =>
+        cfg.Host("localhost", "/", h =>
         {
-            h.Username("user");
-            h.Password("password");
+            h.Username("guest");
+            h.Password("guest");
         });
 
         cfg.ReceiveEndpoint("payment_queue", e =>
