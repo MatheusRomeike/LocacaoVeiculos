@@ -1,29 +1,70 @@
+using LocacaoVeiculos.ApiGateway.Config;
+using MMLib.SwaggerForOcelot.DependencyInjection;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using Microsoft.OpenApi.Models;
-using System.Reflection;
+using Ocelot.Provider.Eureka;
+using Ocelot.Provider.Polly;
+using Steeltoe.Discovery.Client;
+using Steeltoe.Discovery.Eureka;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-builder.Services.AddOcelot(builder.Configuration);
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
+// Add services to the container.
+string routes = "Routes.dev";
+
+builder.Configuration.AddOcelotWithSwaggerSupport(options =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiGateway", Version = "v1" });
-    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    c.IncludeXmlComments(xmlPath);
+    options.Folder = routes;
 });
+
+// Configure ocelot
+builder.Services.AddOcelot(builder.Configuration).AddEureka().AddPolly();
+
+//builder.Services.AddOcelot(builder.Configuration).AddPolly();
+builder.Services.AddSwaggerForOcelot(builder.Configuration);
+
+// Add or register service discovery to your application
+builder.Services.AddServiceDiscovery(o => o.UseEureka());
+
+// builder.Configuration
+//     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+//     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true)
+//     .AddOcelot(routes, builder.Environment)
+//     .AddEnvironmentVariables()
+//     .SetBasePath(Directory.GetCurrentDirectory());
+
+builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
+{
+    config.SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile($"appsettings.local.json", optional: true, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", optional: true)
+    .AddOcelot(routes, builder.Environment)
+    .AddEnvironmentVariables();
+});
+
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiGateway v1"));
+    //app.UseSwaggerUI();
 }
 
-app.UseOcelot().Wait();
+app.UseAuthorization();
+
+app.UseSwaggerForOcelotUI(options =>
+{
+    options.PathToSwaggerGenerator = "/swagger/docs";
+    options.ReConfigureUpstreamSwaggerJson = AlterUpstream.AlterUpstreamSwaggerJson;
+}).UseOcelot().Wait();
+
+app.MapControllers();
+
 app.Run();

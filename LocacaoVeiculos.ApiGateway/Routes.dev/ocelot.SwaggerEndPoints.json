@@ -1,0 +1,59 @@
+{
+  "SwaggerEndPoints": [
+    {
+      "Key": "apigateway",
+      "TransformByOcelotConfig": false,
+      "Config": [
+        {
+          "Name": "apigateway",
+          "Version": "1.0",
+          "Url": "http://apigateway:80/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "AUTH",
+      "TransformByOcelotConfig": true,
+      "Config": [
+        {
+          "Name": "Auth.API",
+          "Version": "1.0",
+          "Url": "http://apigateway:80/auth/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "PAYMENT",
+      "TransformByOcelotConfig": true,
+      "Config": [
+        {
+          "Name": "Payment.API",
+          "Version": "1.0",
+          "Url": "http://apigateway:80/payment/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "RENTAL",
+      "TransformByOcelotConfig": true,
+      "Config": [
+        {
+          "Name": "Rental.API",
+          "Version": "1.0",
+          "Url": "http://apigateway:80/rental/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "VEHICLE",
+      "TransformByOcelotConfig": true,
+      "Config": [
+        {
+          "Name": "Vehicle.API",
+          "Version": "1.0",
+          "Url": "http://apigateway:80/vehicle/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}
