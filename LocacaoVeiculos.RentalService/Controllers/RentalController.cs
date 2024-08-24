@@ -3,7 +3,7 @@ using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class RentalController : ControllerBase
 {
     private readonly IPublishEndpoint _publishEndpoint;
@@ -11,6 +11,12 @@ public class RentalController : ControllerBase
     public RentalController(IPublishEndpoint publishEndpoint)
     {
         _publishEndpoint = publishEndpoint;
+    }
+
+    [HttpGet("PIMBAS")]
+    public string GetPimbas()
+    {
+        return "PIMBAS";
     }
 
     [HttpPost]

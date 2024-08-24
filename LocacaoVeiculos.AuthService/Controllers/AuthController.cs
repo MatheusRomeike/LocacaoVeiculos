@@ -27,6 +27,13 @@ namespace LocacaoVeiculos.AuthService.Controllers
             _configuration = configuration;
         }
 
+        [HttpGet("PIMBAS")]
+        [AllowAnonymous]
+        public string GetPimbas()
+        {
+            return "PIMBAS";
+        }
+
         /// <summary>
         /// Method to register a new user
         /// </summary>

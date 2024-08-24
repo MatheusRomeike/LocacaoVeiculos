@@ -1,49 +1,49 @@
 ﻿{
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/auth/{everything}",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
       "SwaggerKey": "AUTH",
       "UseServiceDiscovery": true,
       "ServiceName": "LocacaoVeiculos.AuthService",
       "UpstreamPathTemplate": "/auth/{everything}",
-      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "LoadBalancerOptions": {
-        "Type": "RoundRobin"
+        "Type": "LeastConnection"
       }
     },
     {
-      "DownstreamPathTemplate": "/api/payment/{everything}",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
       "SwaggerKey": "PAYMENT",
       "UseServiceDiscovery": true,
       "ServiceName": "LocacaoVeiculos.PaymentService",
-      "UpstreamPathTemplate": "/api/payment/{everything}",
-      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
+      "UpstreamPathTemplate": "/payment/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "LoadBalancerOptions": {
-        "Type": "RoundRobin"
+        "Type": "LeastConnection"
       }
     },
     {
-      "DownstreamPathTemplate": "/api/rental/{everything}",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
       "SwaggerKey": "RENTAL",
       "UseServiceDiscovery": true,
       "ServiceName": "LocacaoVeiculos.RentalService",
-      "UpstreamPathTemplate": "/api/rental/{everything}",
-      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
+      "UpstreamPathTemplate": "/rental/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "LoadBalancerOptions": {
         "Type": "RoundRobin"
       }
     },
     {
-      "DownstreamPathTemplate": "/api/vehicle/{everything}",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
       "SwaggerKey": "VEHICLE",
       "UseServiceDiscovery": true,
       "ServiceName": "LocacaoVeiculos.VehicleService",
-      "UpstreamPathTemplate": "/api/vehicle/{everything}",
-      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
+      "UpstreamPathTemplate": "/vehicle/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "LoadBalancerOptions": {
         "Type": "RoundRobin"
       }
@@ -54,18 +54,18 @@
     "DownstreamScheme": "http",
     "UseServiceDiscovery": true,
     "ServiceDiscoveryProvider": {
+      "Host": "apigateway",
       "Port": 80,
-      "Type": "Eureka",
-      "Host": "apigateway"
+      "Type": "Eureka"
     }
   },
   "SwaggerEndPoints": [
     {
-      "Key": "apigateway",
+      "Key": "APIGATEWAY",
       "TransformByOcelotConfig": false,
       "Config": [
         {
-          "Name": "apigateway",
+          "Name": "LocacaoVeiculos.ApiGateway",
           "Version": "1.0",
           "Url": "http://apigateway:80/swagger/v1/swagger.json"
         }
@@ -76,7 +76,7 @@
       "TransformByOcelotConfig": true,
       "Config": [
         {
-          "Name": "Auth.API",
+          "Name": "LocacaoVeiculos.AuthService",
           "Version": "1.0",
           "Url": "http://apigateway:80/auth/swagger/v1/swagger.json"
         }
@@ -87,7 +87,7 @@
       "TransformByOcelotConfig": true,
       "Config": [
         {
-          "Name": "Payment.API",
+          "Name": "LocacaoVeiculos.PaymentService",
           "Version": "1.0",
           "Url": "http://apigateway:80/payment/swagger/v1/swagger.json"
         }
@@ -98,7 +98,7 @@
       "TransformByOcelotConfig": true,
       "Config": [
         {
-          "Name": "Rental.API",
+          "Name": "LocacaoVeiculos.RentalService",
           "Version": "1.0",
           "Url": "http://apigateway:80/rental/swagger/v1/swagger.json"
         }
@@ -109,7 +109,7 @@
       "TransformByOcelotConfig": true,
       "Config": [
         {
-          "Name": "Vehicle.API",
+          "Name": "LocacaoVeiculos.VehicleService",
           "Version": "1.0",
           "Url": "http://apigateway:80/vehicle/swagger/v1/swagger.json"
         }

@@ -13,9 +13,6 @@ services:
       RABBITMQ_DEFAULT_USER: user
       RABBITMQ_DEFAULT_PASS: password
     hostname: rabbitmq
-    ports:
-      - "5672:5672" # Porta para a conexão AMQP
-      - "15672:15672" # Porta para o painel de administração
     networks:
       - locacao-network
 

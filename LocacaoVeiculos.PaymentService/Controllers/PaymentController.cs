@@ -17,6 +17,12 @@ namespace LocacaoVeiculos.PaymentService.Controllers
             _paymentService = paymentService;
         }
 
+        [HttpGet("PIMBAS")]
+        public string GetPimbas()
+        {
+            return "PIMBAS";
+        }
+
         [HttpGet]
         public async Task<IEnumerable<Payment>> GetPayments()
         {

@@ -1,0 +1,457 @@
+{
+  "Aggregates": [],
+  "DynamicRoutes": [],
+  "GlobalConfiguration": {
+    "BaseUrl": null,
+    "CacheOptions": {
+      "EnableContentHashing": null,
+      "Header": null,
+      "Region": null,
+      "TtlSeconds": null
+    },
+    "DownstreamHttpVersion": null,
+    "DownstreamHttpVersionPolicy": null,
+    "DownstreamScheme": null,
+    "HttpHandlerOptions": {
+      "AllowAutoRedirect": false,
+      "MaxConnectionsPerServer": 2147483647,
+      "PooledConnectionLifetimeSeconds": null,
+      "UseCookieContainer": false,
+      "UseProxy": true,
+      "UseTracing": false
+    },
+    "LoadBalancerOptions": {
+      "Expiry": 2147483647,
+      "Key": "",
+      "Type": ""
+    },
+    "MetadataOptions": {
+      "CurrentCulture": "",
+      "Metadata": {},
+      "NumberStyle": "Any",
+      "Separators": [
+        ","
+      ],
+      "StringSplitOption": "None",
+      "TrimChars": [
+        " "
+      ]
+    },
+    "QoSOptions": {
+      "DurationOfBreak": 1,
+      "ExceptionsAllowedBeforeBreaking": 0,
+      "TimeoutValue": 0
+    },
+    "RateLimitOptions": {
+      "ClientIdHeader": "ClientId",
+      "DisableRateLimitHeaders": false,
+      "HttpStatusCode": 429,
+      "QuotaExceededMessage": null,
+      "RateLimitCounterPrefix": "ocelot"
+    },
+    "RequestIdKey": null,
+    "ServiceDiscoveryProvider": {
+      "ConfigurationKey": null,
+      "Host": "apigateway",
+      "Namespace": null,
+      "PollingInterval": 0,
+      "Port": 80,
+      "Scheme": "http",
+      "Token": null,
+      "Type": "Eureka"
+    }
+  },
+  "Routes": [
+    {
+      "AddClaimsToRequest": {},
+      "AddHeadersToRequest": {},
+      "AddQueriesToRequest": {},
+      "AuthenticationOptions": {
+        "AllowedScopes": [],
+        "AuthenticationProviderKey": null,
+        "AuthenticationProviderKeys": []
+      },
+      "ChangeDownstreamPathTemplate": {},
+      "DangerousAcceptAnyServerCertificateValidator": false,
+      "DelegatingHandlers": [],
+      "DownstreamHeaderTransform": {},
+      "DownstreamHostAndPorts": [],
+      "DownstreamHttpMethod": null,
+      "DownstreamHttpVersion": null,
+      "DownstreamHttpVersionPolicy": null,
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "FileCacheOptions": {
+        "EnableContentHashing": null,
+        "Header": null,
+        "Region": null,
+        "TtlSeconds": null
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "MaxConnectionsPerServer": 2147483647,
+        "PooledConnectionLifetimeSeconds": null,
+        "UseCookieContainer": false,
+        "UseProxy": true,
+        "UseTracing": false
+      },
+      "Key": null,
+      "LoadBalancerOptions": {
+        "Expiry": 2147483647,
+        "Key": "",
+        "Type": "RoundRobin"
+      },
+      "Metadata": {},
+      "Priority": 1,
+      "QoSOptions": {
+        "DurationOfBreak": 1,
+        "ExceptionsAllowedBeforeBreaking": 0,
+        "TimeoutValue": 0
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Limit": 0,
+        "Period": null,
+        "PeriodTimespan": 0.0
+      },
+      "RequestIdKey": null,
+      "RouteClaimsRequirement": {},
+      "RouteIsCaseSensitive": false,
+      "SecurityOptions": {
+        "ExcludeAllowedFromBlocked": false,
+        "IPAllowedList": [],
+        "IPBlockedList": []
+      },
+      "ServiceName": "LocacaoVeiculos.VehicleService",
+      "ServiceNamespace": null,
+      "SwaggerKey": "VEHICLE",
+      "Timeout": 0,
+      "UpstreamHeaderTemplates": {},
+      "UpstreamHeaderTransform": {},
+      "UpstreamHost": null,
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "UpstreamPathTemplate": "/vehicle/{everything}"
+    },
+    {
+      "AddClaimsToRequest": {},
+      "AddHeadersToRequest": {},
+      "AddQueriesToRequest": {},
+      "AuthenticationOptions": {
+        "AllowedScopes": [],
+        "AuthenticationProviderKey": null,
+        "AuthenticationProviderKeys": []
+      },
+      "ChangeDownstreamPathTemplate": {},
+      "DangerousAcceptAnyServerCertificateValidator": false,
+      "DelegatingHandlers": [],
+      "DownstreamHeaderTransform": {},
+      "DownstreamHostAndPorts": [],
+      "DownstreamHttpMethod": null,
+      "DownstreamHttpVersion": null,
+      "DownstreamHttpVersionPolicy": null,
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "FileCacheOptions": {
+        "EnableContentHashing": null,
+        "Header": null,
+        "Region": null,
+        "TtlSeconds": null
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "MaxConnectionsPerServer": 2147483647,
+        "PooledConnectionLifetimeSeconds": null,
+        "UseCookieContainer": false,
+        "UseProxy": true,
+        "UseTracing": false
+      },
+      "Key": null,
+      "LoadBalancerOptions": {
+        "Expiry": 2147483647,
+        "Key": "",
+        "Type": "LeastConnection"
+      },
+      "Metadata": {},
+      "Priority": 1,
+      "QoSOptions": {
+        "DurationOfBreak": 1,
+        "ExceptionsAllowedBeforeBreaking": 0,
+        "TimeoutValue": 0
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Limit": 0,
+        "Period": null,
+        "PeriodTimespan": 0.0
+      },
+      "RequestIdKey": null,
+      "RouteClaimsRequirement": {},
+      "RouteIsCaseSensitive": false,
+      "SecurityOptions": {
+        "ExcludeAllowedFromBlocked": false,
+        "IPAllowedList": [],
+        "IPBlockedList": []
+      },
+      "ServiceName": "LocacaoVeiculos.AuthService",
+      "ServiceNamespace": null,
+      "SwaggerKey": "AUTH",
+      "Timeout": 0,
+      "UpstreamHeaderTemplates": {},
+      "UpstreamHeaderTransform": {},
+      "UpstreamHost": null,
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "UpstreamPathTemplate": "/auth/{everything}"
+    },
+    {
+      "AddClaimsToRequest": {},
+      "AddHeadersToRequest": {},
+      "AddQueriesToRequest": {},
+      "AuthenticationOptions": {
+        "AllowedScopes": [],
+        "AuthenticationProviderKey": null,
+        "AuthenticationProviderKeys": []
+      },
+      "ChangeDownstreamPathTemplate": {},
+      "DangerousAcceptAnyServerCertificateValidator": false,
+      "DelegatingHandlers": [],
+      "DownstreamHeaderTransform": {},
+      "DownstreamHostAndPorts": [],
+      "DownstreamHttpMethod": null,
+      "DownstreamHttpVersion": null,
+      "DownstreamHttpVersionPolicy": null,
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "FileCacheOptions": {
+        "EnableContentHashing": null,
+        "Header": null,
+        "Region": null,
+        "TtlSeconds": null
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "MaxConnectionsPerServer": 2147483647,
+        "PooledConnectionLifetimeSeconds": null,
+        "UseCookieContainer": false,
+        "UseProxy": true,
+        "UseTracing": false
+      },
+      "Key": null,
+      "LoadBalancerOptions": {
+        "Expiry": 2147483647,
+        "Key": "",
+        "Type": "LeastConnection"
+      },
+      "Metadata": {},
+      "Priority": 1,
+      "QoSOptions": {
+        "DurationOfBreak": 1,
+        "ExceptionsAllowedBeforeBreaking": 0,
+        "TimeoutValue": 0
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Limit": 0,
+        "Period": null,
+        "PeriodTimespan": 0.0
+      },
+      "RequestIdKey": null,
+      "RouteClaimsRequirement": {},
+      "RouteIsCaseSensitive": false,
+      "SecurityOptions": {
+        "ExcludeAllowedFromBlocked": false,
+        "IPAllowedList": [],
+        "IPBlockedList": []
+      },
+      "ServiceName": "LocacaoVeiculos.PaymentService",
+      "ServiceNamespace": null,
+      "SwaggerKey": "PAYMENT",
+      "Timeout": 0,
+      "UpstreamHeaderTemplates": {},
+      "UpstreamHeaderTransform": {},
+      "UpstreamHost": null,
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "UpstreamPathTemplate": "/payment/{everything}"
+    },
+    {
+      "AddClaimsToRequest": {},
+      "AddHeadersToRequest": {},
+      "AddQueriesToRequest": {},
+      "AuthenticationOptions": {
+        "AllowedScopes": [],
+        "AuthenticationProviderKey": null,
+        "AuthenticationProviderKeys": []
+      },
+      "ChangeDownstreamPathTemplate": {},
+      "DangerousAcceptAnyServerCertificateValidator": false,
+      "DelegatingHandlers": [],
+      "DownstreamHeaderTransform": {},
+      "DownstreamHostAndPorts": [],
+      "DownstreamHttpMethod": null,
+      "DownstreamHttpVersion": null,
+      "DownstreamHttpVersionPolicy": null,
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "FileCacheOptions": {
+        "EnableContentHashing": null,
+        "Header": null,
+        "Region": null,
+        "TtlSeconds": null
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "MaxConnectionsPerServer": 2147483647,
+        "PooledConnectionLifetimeSeconds": null,
+        "UseCookieContainer": false,
+        "UseProxy": true,
+        "UseTracing": false
+      },
+      "Key": null,
+      "LoadBalancerOptions": {
+        "Expiry": 2147483647,
+        "Key": "",
+        "Type": "RoundRobin"
+      },
+      "Metadata": {},
+      "Priority": 1,
+      "QoSOptions": {
+        "DurationOfBreak": 1,
+        "ExceptionsAllowedBeforeBreaking": 0,
+        "TimeoutValue": 0
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Limit": 0,
+        "Period": null,
+        "PeriodTimespan": 0.0
+      },
+      "RequestIdKey": null,
+      "RouteClaimsRequirement": {},
+      "RouteIsCaseSensitive": false,
+      "SecurityOptions": {
+        "ExcludeAllowedFromBlocked": false,
+        "IPAllowedList": [],
+        "IPBlockedList": []
+      },
+      "ServiceName": "LocacaoVeiculos.RentalService",
+      "ServiceNamespace": null,
+      "SwaggerKey": "RENTAL",
+      "Timeout": 0,
+      "UpstreamHeaderTemplates": {},
+      "UpstreamHeaderTransform": {},
+      "UpstreamHost": null,
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "UpstreamPathTemplate": "/rental/{everything}"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Config": [
+        {
+          "Name": "LocacaoVeiculos.ApiGateway",
+          "Service": null,
+          "Url": "http://apigateway:80/swagger/v1/swagger.json",
+          "Version": "1.0"
+        }
+      ],
+      "HostOverride": null,
+      "Key": "APIGATEWAY",
+      "KeyToPath": "APIGATEWAY",
+      "RemoveUnusedComponentsFromScheme": true,
+      "TakeServersFromDownstreamService": false,
+      "TransformByOcelotConfig": false,
+      "VersionPlaceholder": "{version}"
+    },
+    {
+      "Config": [
+        {
+          "Name": "LocacaoVeiculos.AuthService",
+          "Service": null,
+          "Url": "http://apigateway:80/auth/swagger/v1/swagger.json",
+          "Version": "1.0"
+        }
+      ],
+      "HostOverride": null,
+      "Key": "AUTH",
+      "KeyToPath": "AUTH",
+      "RemoveUnusedComponentsFromScheme": true,
+      "TakeServersFromDownstreamService": false,
+      "TransformByOcelotConfig": true,
+      "VersionPlaceholder": "{version}"
+    },
+    {
+      "Config": [
+        {
+          "Name": "LocacaoVeiculos.PaymentService",
+          "Service": null,
+          "Url": "http://apigateway:80/payment/swagger/v1/swagger.json",
+          "Version": "1.0"
+        }
+      ],
+      "HostOverride": null,
+      "Key": "PAYMENT",
+      "KeyToPath": "PAYMENT",
+      "RemoveUnusedComponentsFromScheme": true,
+      "TakeServersFromDownstreamService": false,
+      "TransformByOcelotConfig": true,
+      "VersionPlaceholder": "{version}"
+    },
+    {
+      "Config": [
+        {
+          "Name": "LocacaoVeiculos.RentalService",
+          "Service": null,
+          "Url": "http://apigateway:80/rental/swagger/v1/swagger.json",
+          "Version": "1.0"
+        }
+      ],
+      "HostOverride": null,
+      "Key": "RENTAL",
+      "KeyToPath": "RENTAL",
+      "RemoveUnusedComponentsFromScheme": true,
+      "TakeServersFromDownstreamService": false,
+      "TransformByOcelotConfig": true,
+      "VersionPlaceholder": "{version}"
+    },
+    {
+      "Config": [
+        {
+          "Name": "LocacaoVeiculos.VehicleService",
+          "Service": null,
+          "Url": "http://apigateway:80/vehicle/swagger/v1/swagger.json",
+          "Version": "1.0"
+        }
+      ],
+      "HostOverride": null,
+      "Key": "VEHICLE",
+      "KeyToPath": "VEHICLE",
+      "RemoveUnusedComponentsFromScheme": true,
+      "TakeServersFromDownstreamService": false,
+      "TransformByOcelotConfig": true,
+      "VersionPlaceholder": "{version}"
+    }
+  ]
+}

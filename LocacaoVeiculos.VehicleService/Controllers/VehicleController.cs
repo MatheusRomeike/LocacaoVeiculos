@@ -17,6 +17,12 @@ namespace LocacaoVeiculos.VehicleService.Controllers
             _vehicleService = vehicleService;
         }
 
+        [HttpGet("PIMBAS")]
+        public string GetPimbas()
+        {
+            return "PIMBAS";
+        }
+
         [HttpGet]
         public async Task<IEnumerable<Vehicle>> GetVehicles()
         {
