@@ -1,4 +1,5 @@
 using LocacaoVeiculos.ApiGateway.Config;
+using Microsoft.IdentityModel.Tokens;
 using MMLib.SwaggerForOcelot.DependencyInjection;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
@@ -13,6 +14,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 //builder.Configuration.AddOcelotWithSwaggerSupport(builder.Environment);
+
+var authenticationProviderKey = "kCJGhD7ArRdWVvzQARhMSgzmDdeySObw";
+
+builder.Services.AddAuthentication()
+    .AddJwtBearer(authenticationProviderKey, x =>
+    {
+        x.Authority = "http://localhost:5001";
+
+        x.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateAudience = false
+        };
+    });
 
 // Configure ocelot
 builder.Services.AddOcelot(builder.Configuration).AddEureka().AddPolly();

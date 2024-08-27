@@ -10,7 +10,7 @@
 	<ItemGroup>
 		<PackageReference Include="MassTransit" Version="8.2.3" />
 		<PackageReference Include="MassTransit.RabbitMQ" Version="8.2.3" />
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.7" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.5" />
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
 		<PackageReference Include="RestEase" Version="1.6.4" />

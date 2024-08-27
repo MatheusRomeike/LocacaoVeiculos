@@ -74,6 +74,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+app.UseAuthentication();
 app.MapControllers();
 
 app.Run();
