@@ -56,6 +56,67 @@ services:
     networks:
       - locacao-network
 
+  authdb:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: authdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
+    hostname: localhost
+    networks:
+      - locacao-network
+    volumes:
+      - authdb_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  paymentdb:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: paymentdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
+    hostname: localhost
+    networks:
+      - locacao-network
+    volumes:
+      - paymentdb_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  vehicledb:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: vehicledb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
+    hostname: localhost
+    networks:
+      - locacao-network
+    volumes:
+      - vehicledb_data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+
+  rentaldb:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: rentaldb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
+    hostname: localhost
+    networks:
+      - locacao-network
+    volumes:
+      - rentaldb_data:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+
+volumes:
+  authdb_data:
+  paymentdb_data:
+  vehicledb_data:
+  rentaldb_data:
 networks:
   locacao-network:
     driver: bridge

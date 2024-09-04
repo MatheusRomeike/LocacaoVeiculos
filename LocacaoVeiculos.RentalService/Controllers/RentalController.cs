@@ -2,23 +2,40 @@
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 
+
+/// <summary>
+/// Controller for managing rental-related operations.
+/// </summary>
 [ApiController]
-[Route("[controller]")]
+[Route("/")]
 public class RentalController : ControllerBase
 {
     private readonly IPublishEndpoint _publishEndpoint;
 
+    /// <summary>
+    /// Constructor for RentalController.
+    /// </summary>
+    /// <param name="publishEndpoint">The publish endpoint.</param>
     public RentalController(IPublishEndpoint publishEndpoint)
     {
         _publishEndpoint = publishEndpoint;
     }
 
+    /// <summary>
+    /// Get a test string.
+    /// </summary>
+    /// <returns>A test string.</returns>
     [HttpGet("PIMBAS")]
     public string GetPimbas()
     {
         return "PIMBAS";
     }
 
+    /// <summary>
+    /// Create a new rental.
+    /// </summary>
+    /// <param name="rentalDto">The rental data.</param>
+    /// <returns>No content.</returns>
     [HttpPost]
     public async Task<IActionResult> CreateRental([FromBody] RentalDto rentalDto)
     {

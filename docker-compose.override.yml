@@ -33,7 +33,7 @@ services:
 
   authservice:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development      
+      - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
     ports:
@@ -86,3 +86,9 @@ services:
     depends_on:
       - eureka-server
       - rabbitmq
+
+volumes:
+  authdb_data:
+  paymentdb_data:
+  vehicledb_data:
+  rentaldb_data:

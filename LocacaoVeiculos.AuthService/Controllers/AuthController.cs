@@ -13,20 +13,31 @@ using System.Threading.Tasks;
 
 namespace LocacaoVeiculos.AuthService.Controllers
 {
+    /// <summary>
+    /// Controller for managing user authentication and authorization.
+    /// </summary>
     [ApiController]
-    [Route("[controller]")]
-    [Authorize]
+    [Route("/")]
     public class AuthController : BaseController
     {
         private readonly IAuthService _authService;
         private readonly IConfiguration _configuration;
 
+        /// <summary>
+        /// Constructor for AuthController.
+        /// </summary>
+        /// <param name="authService">The authentication service.</param>
+        /// <param name="configuration">The configuration.</param>
         public AuthController(IAuthService authService, IConfiguration configuration)
         {
             _authService = authService;
             _configuration = configuration;
         }
 
+        /// <summary>
+        /// Get a test string.
+        /// </summary>
+        /// <returns>A test string.</returns>
         [HttpGet("PIMBAS")]
         [AllowAnonymous]
         public string GetPimbas()
@@ -88,7 +99,7 @@ namespace LocacaoVeiculos.AuthService.Controllers
             if (user != null)
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
+                var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]!);
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new Claim[]
