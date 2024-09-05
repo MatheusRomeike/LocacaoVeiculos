@@ -21,7 +21,7 @@ builder.Services.AddAuthentication()
     .AddJwtBearer(authenticationProviderKey, x =>
     {
         x.Authority = "http://localhost:5001";
-
+        x.RequireHttpsMetadata = false;
         x.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateAudience = false
