@@ -64,11 +64,13 @@
   "Routes": [
     {
       "AddClaimsToRequest": {},
-      "AddHeadersToRequest": {},
+      "AddHeadersToRequest": {
+        "Authorization": "Bearer {token}"
+      },
       "AddQueriesToRequest": {},
       "AuthenticationOptions": {
         "AllowedScopes": [],
-        "AuthenticationProviderKey": null,
+        "AuthenticationProviderKey": "kCJGhD7ArRdWVvzQARhMSgzmDdeySObw",
         "AuthenticationProviderKeys": []
       },
       "ChangeDownstreamPathTemplate": {},

@@ -66,6 +66,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "VehicleService v1"));
 }
 
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
