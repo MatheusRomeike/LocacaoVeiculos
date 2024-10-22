@@ -96,11 +96,8 @@ namespace LocacaoVeiculos.AuthService.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> LoginAsync([FromBody] LoginModel login)
         {
-            var user = new User()
-            {
-                Email = login.Email,
-                Id = 1
-            };//await _authService.LoginAsync(login);
+            var user = await _authService.LoginAsync(login);
+
             if (user != null)
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
@@ -109,8 +106,8 @@ namespace LocacaoVeiculos.AuthService.Controllers
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                        new Claim(ClaimTypes.Email, user.Email)
+                        new(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                        new(ClaimTypes.Email, user.Email)
                     }),
                     Expires = DateTime.UtcNow.AddHours(1),
                     Issuer = _configuration["Jwt:Issuer"],
@@ -120,7 +117,9 @@ namespace LocacaoVeiculos.AuthService.Controllers
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 var tokenString = tokenHandler.WriteToken(token);
 
-                return Ok(tokenString);
+                return Ok(new {
+                    Token = tokenString,
+                });
             }
 
             return Unauthorized();

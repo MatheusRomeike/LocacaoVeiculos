@@ -1,5 +1,6 @@
 ﻿using LocacaoVeiculos.AuthService.Models;
 using LocacaoVeiculos.AuthService.Repositories;
+using LocacaoVeiculos.Shared.CrossCutting.Tools;
 using LocacaoVeiculos.Shared.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace LocacaoVeiculos.AuthService.Services
             var registeredUser = await _userRepository.GetUserByEmailAsync(user.Email);
             if (registeredUser != null)
                 return false;
+
+            user.Password = Hash.Make(user.Password);
             await _userRepository.AddUserAsync(user);
             return true;
         }
@@ -39,6 +42,7 @@ namespace LocacaoVeiculos.AuthService.Services
 
         public async Task<User?> LoginAsync(LoginModel user)
         {
+            user.Password = Hash.Make(user.Password);
             return await _userRepository.LoginAsync(user);
         }
     }
